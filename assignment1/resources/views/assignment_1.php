@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employees</title>
+    <title>Products</title>
     <style>
         td, th {
             padding: 5px;
@@ -34,7 +34,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($products as $product)
+            @foreach($assignment_1 as $product)
                 <tr>
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->prodName }}</td>
@@ -50,15 +50,10 @@
 
     <h2>Create New Product</h2>
     <form action="/assignment_1/insert" method="post">
-        @csrf 
-        <label for="prodName">Product Name: </label>
-        <input type="varchar" name="prodName" /> <br /> <br />
-        <label for="prodDesc">Product Description: </label>
-        <input type="text" name="prodDesc" /> <br /> <br />
-        <label for="prodCode">Product Code: </label>
-        <input type="int" name="prodCode" /> <br /> <br />
-        <label for="prodCost">Cost: </label>
-        <input type="decimal" name="prodCost" /> <br /> <br />
+        <input type="text" name="prodName">
+        <input type="text" name="prodDesc">
+        <input type="number" name="prodCode">
+        <input type="number" step="0.01" name="prodCost">
         <input type="submit" />
     </form>
     

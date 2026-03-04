@@ -22,13 +22,12 @@
 
     <h1>Blade Template Demo</h1>
 
-    <x-alert first-name="Sally" last-name="Jones">
+
         <ul>
             <li>Carrots</li>
             <li>Cucumber</li>
             <li>Tomato</li>
         </ul>
-    </x-alert>
 
     {{-- Our app is a security disaster, I hope the client doesn't see this! 
     --}}
@@ -52,11 +51,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($employees as $employee)
+            @foreach($product as $products)
                 <tr>
-                    <td>{{ $employee["firstName"] }}</td>
-                    <td>{{ $employee["lastName"] }}</td>
-                    <td>{{ $employee["salary"] }}</td>
+                    <td>{{ $product["firstName"] }}</td>
+                    <td>{{ $product["lastName"] }}</td>
+                    <td>{{ $empproductloyee["salary"] }}</td>
                 </tr>
             @endforeach
         </tbody>

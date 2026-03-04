@@ -4,22 +4,28 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class DatabaseSeeder extends Seeder
+public function run(): void
 {
-    use WithoutModelEvents;
-
-    /**
-     * Seed the application's database.
-     */
-    public function run(): void
-    {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-    }
+    DB::table('assignment_1')->insert([
+        [
+            'prodName' => 'Keyboard',
+            'prodDesc' => 'Mechanical keyboard',
+            'prodCode' => 101,
+            'prodCost' => 120.00,
+        ],
+        [
+            'prodName' => 'Mouse',
+            'prodDesc' => 'Wireless mouse',
+            'prodCode' => 102,
+            'prodCost' => 45.00,
+        ],
+        [
+            'prodName' => 'Monitor',
+            'prodDesc' => '27 inch display',
+            'prodCode' => 103,
+            'prodCost' => 300.00,
+        ],
+    ]);
 }
