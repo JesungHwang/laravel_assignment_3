@@ -50,10 +50,18 @@
     <br /> <br />
 
 @if(request()->has('create'))
-    <a href="{{ url('/manage') }}">Stop Adding New Items</a>
-
-    <h2>Create New Product</h2>
-
+    <a style="display:inline-block;
+              padding:6px 6px;
+              margin-bottom: 15px;
+              background:black;
+              color:white;
+              text-decoration:none;
+              border-radius:6px;
+              box-shadow:0 5px 0 lightgrey;
+              transition:all 0.1s ease-in-out;"
+   onmouseover="this.style.transform='translateY(3px)'; this.style.boxShadow='0 2px 0 lightgrey';"
+   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 0 lightgrey';"
+   href="{{ url('/manage') }}">Stop Adding New Items</a>
     <form action="{{ url('/manage/insert') }}" method="POST">
         @csrf
 
@@ -67,14 +75,25 @@
         <input type="number" name="prodCode">
 
         <label>Cost:</label>
-        <input type="number" step="0.01" name="prodCost">
+        <input type="number" step="0.05" name="prodCost">
 
         <input type="submit" value="Submit">
     </form>
 @endif
 
 @if(!request()->has('create'))
-    <a href="{{ url('/manage?create=1') }}">Add New Items</a>
+    <a style="display:inline-block;
+              padding:6px 6px;
+              margin-bottom: 15px;
+              background:black;
+              color:white;
+              text-decoration:none;
+              border-radius:6px;
+              box-shadow:0 5px 0 lightgrey;
+              transition:all 0.1s ease-in-out;"
+   onmouseover="this.style.transform='translateY(3px)'; this.style.boxShadow='0 2px 0 lightgrey';"
+   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 0 lightgrey';"
+   href="{{ url('/manage?create=1') }}">Add New Items</a>
 @endif
     
 </body>
