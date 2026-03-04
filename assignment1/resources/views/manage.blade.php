@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>Manage</title>
     <style>
         td, th {
             padding: 5px;
@@ -23,9 +23,7 @@
     </style>
 </head>
 <body>
-    <h1>Products Application</h1>
-
-    <h2>Products Table</h2>
+    <h2>Manage Products</h2>
     <table>
         <thead>
             <tr>
@@ -51,9 +49,14 @@
 
     <br /> <br />
 
+@if(request()->has('create'))
+    <a href="{{ url('/manage') }}">Stop Adding New Items</a>
+
     <h2>Create New Product</h2>
-    <form action="{{ route('assignment_1.insert') }}" method="POST">
-    @csrf
+
+    <form action="{{ url('/manage/insert') }}" method="POST">
+        @csrf
+
         <label>Product Name:</label>
         <input type="text" name="prodName">
 
@@ -68,6 +71,13 @@
 
         <input type="submit" value="Submit">
     </form>
+@endif
+
+@if(!request()->has('create'))
+    <a href="{{ url('/manage?create=1') }}">Add New Items</a>
+@endif
     
 </body>
 </html>
+
+@endsection

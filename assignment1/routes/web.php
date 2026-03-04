@@ -28,7 +28,7 @@ Route::get("/assignment_1/update", function() {
  
     $assignment_1_db = DB::select("SELECT * FROM assignment_1");
 
-    return view("assignment_1", 
+    return view("manage", 
                 ["assignment_1" => $assignment_1_db]);
 
 });
@@ -39,16 +39,16 @@ Route::get("/assignment_1/delete", function() {
  
     $assignment_1_db = DB::select("SELECT * FROM assignment_1");
 
-    return view("assignment_1", 
+    return view("manage", 
                 ["assignment_1" => $assignment_1_db]);
 
 });
 
-Route::get("/assignment_1", function() {
+Route::get("/manage", function() {
 
     $assignment_1_db = DB::select("SELECT * FROM assignment_1");
 
-    return view("assignment_1", 
+    return view("manage", 
                 ["assignment_1" => $assignment_1_db,
                  "page" => "Products"]);
 

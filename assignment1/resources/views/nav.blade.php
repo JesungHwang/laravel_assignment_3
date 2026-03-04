@@ -1,7 +1,8 @@
-    <nav>
-        <ul>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
+<hr>
+<nav style="display:flex; text-align:center;">
+        <a style="flex:1;" href="/home">Home</a>
+        <a style="flex:1;" href="/about">Manage</a>
+        <a style="flex:1;" href="/contact">Search</a>
+        <a style="flex:1;" href="/about">About</a>
+</nav>
+<hr>

@@ -7,5 +7,5 @@
 </head>
 <body>
     <header>
-        <h1>Web App</h1>
+        <h1>Assignment 3 - Laravel Multipages</h1>
     </header>
