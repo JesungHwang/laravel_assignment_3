@@ -1,3 +1,4 @@
+
 @extends("layout")
 
 @section("content")
@@ -20,6 +21,17 @@
         table {
             border-collapse: collapse;
         }
+        .button{
+            display:inline-block;
+            padding:6px 6px;
+            margin-bottom: 15px;
+            background:black;
+            color:white;
+            text-decoration:none;
+            border-radius:6px;
+            box-shadow:0 5px 0 lightgrey;
+            transition:all 0.1s ease-in-out;
+        }
     </style>
 </head>
 <body>
@@ -32,6 +44,8 @@
                 <th>Description</th>
                 <th>Code</th>
                 <th>Cost</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -42,6 +56,12 @@
                     <td>{{ $product->prodDesc }}</td>
                     <td>{{ $product->prodCode }}</td>
                     <td>{{ $product->prodCost }}</td>
+                    <td>
+                        <a href="/manage/edit/{{ $product->id }}">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/manage/delete/{{ $product->id }}">Delete</a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
@@ -50,17 +70,9 @@
     <br /> <br />
 
 @if(request()->has('create'))
-    <a style="display:inline-block;
-              padding:6px 6px;
-              margin-bottom: 15px;
-              background:black;
-              color:white;
-              text-decoration:none;
-              border-radius:6px;
-              box-shadow:0 5px 0 lightgrey;
-              transition:all 0.1s ease-in-out;"
-   onmouseover="this.style.transform='translateY(3px)'; this.style.boxShadow='0 2px 0 lightgrey';"
-   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 0 lightgrey';"
+    <a class="button";
+            onmouseover="this.style.transform='translateY(3px)'; this.style.boxShadow='0 2px 0 lightgrey';"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 0 lightgrey';"
    href="{{ url('/manage') }}">Stop Adding New Items</a>
     <form action="{{ url('/manage/insert') }}" method="POST">
         @csrf
@@ -82,17 +94,9 @@
 @endif
 
 @if(!request()->has('create'))
-    <a style="display:inline-block;
-              padding:6px 6px;
-              margin-bottom: 15px;
-              background:black;
-              color:white;
-              text-decoration:none;
-              border-radius:6px;
-              box-shadow:0 5px 0 lightgrey;
-              transition:all 0.1s ease-in-out;"
-   onmouseover="this.style.transform='translateY(3px)'; this.style.boxShadow='0 2px 0 lightgrey';"
-   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 0 lightgrey';"
+    <a class="button";
+            onmouseover="this.style.transform='translateY(3px)'; this.style.boxShadow='0 2px 0 lightgrey';"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 0 lightgrey';"
    href="{{ url('/manage?create=1') }}">Add New Items</a>
 @endif
     

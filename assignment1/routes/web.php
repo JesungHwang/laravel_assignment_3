@@ -21,20 +21,15 @@ Route::post("/manage/insert", function(Request $request) {
     return redirect("/manage");
 });
 
-Route::get("/manage/update", function() {
-
-    DB::update("UPDATE assignment_1 SET prodName=? WHERE id=?", 
-               ["update function", 1]);
- 
-    $assignment_1_db = DB::select("SELECT * FROM assignment_1");
-
-    return view("manage", ["assignment_1" => $assignment_1_db]);
-
+Route::get("/manage/update/{id}", function($id) {
+    DB::update("UPDATE assignment_1 SET prodName=? WHERE id=?", ["updated product", $id]);
+    //$assignment_1_db = DB::select("SELECT * FROM assignment_1");
+    return redirect("/manage", ["assignment_1" => $assignment_1_db, "page" => "Products"]);
 });
 
 Route::get("/manage/delete", function() {
 
-    DB::delete("DELETE FROM assignment_1 WHERE id=?", [2]);
+    DB::delete("DELETE FROM assignment_1 WHERE id=?", ["update function", $id]);
  
     $assignment_1_db = DB::select("SELECT * FROM assignment_1");
 
@@ -62,6 +57,10 @@ Route::get("/about", function() {
     return view("about")->with("page", "About");
 });
 
-// Route::get("/profile", function() {
-//     return view("profile.main")->with("username", "Johnny");
-// });
+Route::get("/manage/edit/{id}", function($id) {
+    $product = DB::select("SELECT * FROM assignment_1 WHERE id = ?", [$id]);
+    return view("edit", [
+        "product" => $product[0],
+        "page" => "Edit Product"
+    ]);
+});
