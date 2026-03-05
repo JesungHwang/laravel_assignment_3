@@ -15,7 +15,7 @@
     <label>Cost</label>
     <input type="number" step="0.05" name="prodCost" value="{{ $product->prodCost }}">
     <br><br>
-    <input type="submit" value="Update Product">
+    <input type="submit" value="Confirm Edit">
 
 </form>
 
